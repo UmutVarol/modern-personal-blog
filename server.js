@@ -1,3 +1,4 @@
+require('dotenv').config(); //
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
@@ -97,9 +98,8 @@ app.post('/api/contact', async (req, res) => {
         port: 465,
         secure: true, // SSL kullanımı
         auth: {
-            user: 'umutvarol7676@gmail.com',
-            // DİKKAT: AŞAĞIDAKİ YERE GOOGLE'DAN ALDIĞIN 16 HARFLİ ŞİFREYİ GİRMELİSİN! (Boşluksuz)
-            pass: 'jyurclyzaqwqvcvy' 
+            user: 'umutvarol7676@gmail.com'
+            pass: process.env.GMAIL_PASS 
         },
         tls: {
             rejectUnauthorized: false
